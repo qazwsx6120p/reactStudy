@@ -1,0 +1,66 @@
+<!-- 演示redux的使用 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>我當前的數量<span>0</span></h3>
+        <button>+1</button>
+        <button>-1</button>
+    </div>
+    <!-- 先引入redux -->
+    <script src="node_modules/redux/dist/redux.js"></script>
+    <script>
+        // react 中 action 的概念
+        // 1. action 是一個動作或者行為的抽象
+        // 2. 我們使用一個物件來表示一個 action
+        // 3. 每一個 action 有一個唯一的標示 type
+        // 4. action 除了 type 之外 ，還可以有其他屬性，用來提供額外的數據
+
+        // 將add寫成函數叫做action creator : 作用，創建 action
+        const add = () => {
+            return {
+                type: "ADD"
+            };
+        }
+        console.log(add());
+
+        // const action = {
+        //     type: "SUB"
+        // };
+
+        // 添加任務
+        // const action2 = {
+        //     type: "ADD_TODO",
+        //     name: "張三"
+        // };
+
+        // 刪除任務
+        // const action3 = {
+        //     type: "DEL_TODO",
+        //     id: 5
+        // };
+        
+        // action creator 相當於公司裡的顧問，提供想法不做事情
+        const delTodo = (id) => {
+            return {
+                type: "DEL_TODO",
+                id,
+            }
+        }
+        // dispatch(action)
+        console.log(delTodo(5));
+        console.log(delTodo(10));
+        // 刪除任務
+        dispatch(delTodo(5));
+    </script>
+</body>
+
+</html>

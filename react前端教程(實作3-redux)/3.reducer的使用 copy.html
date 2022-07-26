@@ -1,0 +1,69 @@
+<!-- 演示redux的使用 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>我當前的數量<span>0</span></h3>
+        <button>+1</button>
+        <button>-1</button>
+    </div>
+    <!-- 先引入redux -->
+    <script src="node_modules/redux/dist/redux.js"></script>
+    <script>
+
+
+        // 將add寫成函數叫做action creator : 作用，創建 action
+        const add = () => {
+            return {
+                type: "ADD",
+            };
+        }
+
+        const minus = () => {
+            return {
+                type: "MINUS",
+            }
+        }
+
+        // reducer的作用，處理action
+        // 1.reducer的state需要有一個默認值，這個默認值就是redux的初始值
+        // 2.reducer內部需要判斷action的type，根據type進行處理，
+        // 處理的時候不能修改原來數據
+        // 3.reducer如果遇到不認識的type，一定要返回原來的state(重要)
+        function reducer(state = 0, action) {
+            // 處理+1的action
+            // if (action.type === "ADD") {
+            //     return state + 1
+            // }
+            // 處理-1的action
+            // if (action.type === "MINUS") {
+            //     return state - 1
+            // }
+            // 還是要返回狀態
+            // return state
+
+            // -----可以使用switch語句-----
+            switch (action.type) {
+                case "ADD":
+                    return state + 1
+                case "MINUS":
+                    return state - 1
+                default:
+                    return state
+
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!-- 演示redux的使用 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>我當前的數量<span>0</span></h3>
+        <button>+1</button>
+        <button>-1</button>
+    </div>
+    <!-- 先引入redux -->
+    <script src="node_modules/redux/dist/redux.js"></script>
+    <script>
+        // react 中 action 的概念
+        // 1. action 是一個動作或者行為的抽象
+        // 2. 我們使用一個物件來表示一個 action
+        // 3. 每一個 action 有一個唯一的標示 type
+        // 4. action 除了 type 之外 ，還可以有其他屬性，用來提供額外的數據
+
+        // 將add寫成函數叫做action creator : 作用，創建 action
+        const add = () => {
+            return {
+                type: "ADD"
+            };
+        }
+        console.log(add());
+        
+        // action creator 相當於公司裡的顧問，提供想法不做事情
+        const delTodo = (id) => {
+            return {
+                type: "DEL_TODO",
+                id,
+            }
+        }
+        // dispatch(action)
+        console.log(delTodo(5));
+
+        // reducer (做事情的員工)
+        // reducer是一個函數，用於提供處理action的邏輯
+        // reducer必須是一個純函數 pure function
+        // 不能改寫參數、不能用Date.now() Math.random等不純的方法
+        // 因為每次得到的結果不一樣
+        // 不能使用全局變數
+        // 可以緩存
+        function reducer(state,action){
+
+        }
+
+
+    </script>
+</body>
+
+</html>
